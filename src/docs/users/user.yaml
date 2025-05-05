@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  title: API de Usuarios
+  version: 1.0.0
+  description: Documentación de endpoints de usuarios
+
+paths:
+  /api/users:
+    get:
+      summary: Obtener todos los usuarios
+      tags:
+        - Usuarios
+      responses:
+        '200':
+          description: Lista de usuarios obtenida con éxito
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 123abc
+        nombre:
+          type: string
+          example: Juan Pérez
+        email:
+          type: string
+          example: juan@example.com
